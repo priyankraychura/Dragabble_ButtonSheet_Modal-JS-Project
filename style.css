@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-color: #e3f2fd;
+}
+.show-modal {
+	outline: none;
+	border: none;
+	background: #4a98f7;
+	padding: 15px 22px;
+	color: #fff;
+	border-radius: 6px;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+.bottom-sheet {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	transition: 0.1s linear;
+}
+.bottom-sheet.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+.bottom-sheet .sheet-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	opacity: 0.2;
+	background: #000;
+}
+.bottom-sheet .content {
+	background: #fff;
+	height: 50vh;
+	max-height: 100vh;
+	padding: 25px 30px;
+	width: 100%;
+	max-width: 1100px;
+	border-radius: 12px 12px 0 0;
+	position: relative;
+	transform: translateY(100%);
+	transition: 0.3s ease;
+}
+.bottom-sheet.show .content {
+	transform: translateY(0%);
+}
+.bottom-sheet.dragging .content {
+	transition: none;
+}
+.bottom-sheet.fullscreen .content {
+    border-radius: 0;
+    overflow-y: hidden;
+}
+.bottom-sheet .header {
+	display: flex;
+	justify-content: center;
+}
+.bottom-sheet .drag-icon {
+	cursor: grab;
+	user-select: none;
+	padding: 15px;
+	margin-top: -15px;
+}
+.bottom-sheet .drag-icon span {
+	height: 4px;
+	width: 40px;
+	display: block;
+	background: #c7d0e1;
+	border-radius: 50px;
+}
+.bottom-sheet .body {
+	overflow-y: auto;
+	height: 100%;
+	padding: 15px 0 40px;
+	scrollbar-width: none;
+}
+.bottom-sheet .body::-webkit-scrollbar {
+	width: 0;
+}
+.bottom-sheet .body h2 {
+	font-size: 1.8rem;
+}
+.bottom-sheet .body p {
+	font-size: 1.05rem;
+	margin-top: 20px;
+}
